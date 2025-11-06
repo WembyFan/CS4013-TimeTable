@@ -19,7 +19,7 @@ public class User {
         this.userId = userId;
         this.name = name;
         this.role = role;
-        this.password = password;
+        this.password = pass;
     }
 
     /** @return the user's ID */
