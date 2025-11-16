@@ -26,25 +26,27 @@ public class LoginManager {
                 String[] columns = line.split(",");
                 if (columns.length < 4) continue;
 
-                // Read and clean up the data from each line
+                // Reads and cleans up the data from each line
                 int id = Integer.parseInt(columns[0].trim());
                 String name = columns[1].trim();
                 String role = columns[2].trim().toLowerCase();
                 String pass = columns[3].trim();
 
-                // Compare numeric IDs and password
+                // Compares IDs and passwords
                 if (id == userId && pass.equals(password.trim())) {
-                    switch (role) {
-                        case "student":
-                            return new Student(id, name, pass);
-                        case "lecturer":
-                            return new Lecturer(id, name, pass);
-                        case "admin":
-                            return new Admin(id, name, pass);
-                        default:
-                            System.err.println("Invalid role: " + role);
-                            break;
-                    }
+                     if(role.trim().equals("admin")){
+                         return new Admin(userId, name, pass);
+                     }
+                     else if(role.trim().equals("student")){
+                         return new Student(userId, name, pass);
+                     }
+                     else if(role.trim().equals("lecturer")){
+                         return new Lecturer(userId, name, pass);
+                     }
+                     else{
+                         System.err.println("Invalid role:");
+                         return null;
+                     }
                 }
             }
         } catch (IOException e) {
