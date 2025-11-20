@@ -1,5 +1,6 @@
-1001,Victor Alabi,student,IHateThisProject
-1002,Evan Griffiths,student,CantDoLegs
-2001,Michael English,lecturer,ObjectOrientedDevelopment
-2002,Nikola Nikolov,lecturer,Datbase
-3001,AdminUser,admin,admin123
+userId,name,role,password,groupId
+1001,John Doe,student,pass123,1A
+1002,Sarah Kelly,student,pass123,1B
+1003,Luke Nolan,student,pass123,1C
+2001,Mike Stone,lecturer,pass123,-
+3001,Admin,admin,admin123,-

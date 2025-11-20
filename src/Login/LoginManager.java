@@ -31,6 +31,7 @@ public class LoginManager {
                 String name = columns[1].trim();
                 String role = columns[2].trim().toLowerCase();
                 String pass = columns[3].trim();
+                String groupId = columns[4].trim();
 
                 // Compares IDs and passwords
                 if (id == userId && pass.equals(password.trim())) {
@@ -38,7 +39,7 @@ public class LoginManager {
                          return new Admin(userId, name, pass);
                      }
                      else if(role.trim().equals("student")){
-                         return new Student(userId, name, pass);
+                         return new Student(userId, name, pass, groupId);
                      }
                      else if(role.trim().equals("lecturer")){
                          return new Lecturer(userId, name, pass);
