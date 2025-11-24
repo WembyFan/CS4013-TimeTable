@@ -1,4 +1,9 @@
-package Login;
+package Logic;
+
+import Login.Admin;
+import Login.Lecturer;
+import Login.Student;
+import Login.User;
 
 import java.io.*;
 

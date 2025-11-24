@@ -1,5 +1,7 @@
 package Login;
 
+import Logic.LoginManager;
+
 import java.util.Scanner;
 
 public class LoginTest {

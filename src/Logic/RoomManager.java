@@ -1,4 +1,6 @@
-package Model;
+package Logic;
+
+import Model.Room;
 
 import java.io.*;
 import java.util.*;
