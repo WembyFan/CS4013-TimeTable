@@ -3,7 +3,7 @@ package Menu;
   * Provides different menus based on users input **/
 
 import Login.User;
-import Logic.TimetableManger;
+import Logic.TimetableManager;
 import Model.RoomManager;
 import java.util.Scanner;
 
@@ -17,8 +17,8 @@ public class Menu {
 
 
     public Menu() {
-    this.scanner =new Scanner(System.in);
-    this.timetableManager =new TimetableManager();
+    this.scanner = new Scanner(System.in);
+    this.timetableManager = new TimetableManager();
     }
 
     /**
