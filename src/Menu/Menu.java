@@ -13,16 +13,12 @@ public class Menu {
      * Constructors initialised
      **/
     private Scanner scanner;
-    private TimetableManager timetableManager
+    private TimetableManager timetableManager;
 
 
-    public class Menu() {
-    this.scanner =new
-
-        Scanner(System.in);
-    this.timetableManager =new
-
-        TimetableManager();
+    public Menu() {
+    this.scanner =new Scanner(System.in);
+    this.timetableManager =new TimetableManager();
     }
 
     /**
