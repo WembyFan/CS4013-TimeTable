@@ -10,18 +10,16 @@ import java.util.List;
 Acts as controller between menu and TimetableData */
 
 public class TimetableManager {
+    private TimetableData timetableData;
+    private FileHandler fileHandler;
 
+
+    /* Constructor initialises TimetableManager with dependencies */
     public TimetableManager() {
-        private TimetableData timetableData;
-        private FileHandler fileHandler;
-
-
-        /* Constructor initisialises TimetableManager with dependencies */
-    public TimetableManager() {
-            this.timetableData = new TimetableData();
-            this.fileHandler = new FileHandler();
+        this.timetableData = new TimetableData();
+        this.fileHandler = new FileHandler();
         }
-/**
+/*
  * Displays personal timetable for current user
  * Shows different timetable based on user role (student, staff, admin)
  *
@@ -33,14 +31,14 @@ public class TimetableManager {
 
             List<TimetableSlot> slots = new ArrayList<>();
 
-            /* Selct correct timetable based on user role
+            /* Select correct timetable based on user role
              */
             if (user.getRole().equals("student")) {
                 Student student = (Student) user;
-                slots = timetabkeData.getTimetableForGroup(student.getGroupId());
-            } else if (user.getRole().equals("staff")) {
-                Staff staff = (Staff) user;
-                slots = timetableData.getTimetableForStaff(staff.getUserId());
+                slots = timetableData.getTimetableForGroup(student.getGroupId());
+            } else if (user.getRole().equals("lecturer")) {
+                Lecturer lecturer = (Lecturer) user;
+                slots = timetableData.getTimetableForLecturer(lecturer.getUserId());
             } else if (user.getRole().equals("admin")) {
                 slots = timetableData.getAllTimetableSlots();
 

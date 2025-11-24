@@ -63,21 +63,21 @@ public class Menu {
             /* Staff timetable, only viewable by staff and admin **/
             if (choice == 2) {
                 System.out.println("\n STAFF TIMETABLE FOR, " + user.getName() + " (" + user.getUserId() + ").");
-                timetableManager.viewStaffTimetable(Staff);
+                timetableManager.viewStaffTimetable(Lecturer);
             }
 
             /* Admin only screen, add/remove lectures/labs/tutorials for students and staff timetables **/
             if (choice == 3) {
                 System.out.println("\n LOGGED IN ADMIN: " + user.getName() + " (" + user.getUserId() + ").");
                 System.out.println("\n--- MODIFY TIMETABLE ---");
-                timetableManager.viewModiyTimetable(Admin);
+                timetableManager.viewModiyTimetable(admin);
             }
 
             /* Admin only screen, assign/remove lectures, labs, tutorials to/from different rooms **/
             if (choice == 4) {
                 System.out.println("\n LOGGED IN ADMIN: " + user.getName() + " (" + user.getUserId() + ").");
                 System.out.println("\n --- ROOM MANAGER ---");
-                timetableManager.viewRoomManager(Admin);
+                timetableManager.viewRoomManager(admin);
 
 
                 /** LOG OUT FEATURE **/
