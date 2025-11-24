@@ -16,13 +16,9 @@ public class Menu {
     private TimetableManager timetableManager;
 
 
-    public class Menu() {
-    this.scanner =new
-
-        Scanner(System.in);
-    this.timetableManager =new
-
-        TimetableManager();
+    public Menu() {
+    this.scanner =new Scanner(System.in);
+    this.timetableManager =new TimetableManager();
     }
 
     /**
