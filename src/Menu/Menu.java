@@ -86,7 +86,9 @@ public class Menu {
 
             } else if (choice == 6) {
                 exit = true;
-            }
+
+            } else
+                System.out.println("Invalid choice! Please select a number from 1 - 6.");
         }
     }
 
@@ -103,9 +105,10 @@ public class Menu {
         while (!exit) {
             if (choice == 1) {
                 printSlots(timetableData.getTimetableForLecturer(user.getName()));
-            } else {
+            } else if (choice == 2){
                 exit = true;
-            }
+            } else
+                System.out.println("Invalid choice! Please select a number from 1 - 2.");
         }
     }
 
@@ -123,8 +126,10 @@ public class Menu {
             if (choice == 1) {
                 Student s = (Student) user;
                 printSlots(timetableData.getTimetableForGroup(s.getGroupId()));
-            } else {
+            } else if (choice ==2) {
                 exit = true;
+            } else {
+                System.out.println("Invalid choice! Please select a number from 1 - 6.");
             }
         }
     }
@@ -191,9 +196,12 @@ public class Menu {
             System.out.println("Enter new group: ");
             slot.setGroupId(scanner.nextLine());
 
-        } else {
+        } else if (choice == 5){
             System.out.println("No changes made.");
             return;
+
+        } else {
+            System.out.println("Invalid choice! Please select a number from 1 - 5.");
         }
 
         fileHandler.saveTimetable(slots, "resources/timetable.csv");
