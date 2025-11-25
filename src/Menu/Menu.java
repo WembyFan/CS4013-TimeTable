@@ -4,8 +4,8 @@ package Menu;
 
 import Logic.TimetableData;
 import Login.User;
-import Logic.TimetableManager;
-import Model.RoomManager;
+import Login.Student;
+import Logic.RoomData;
 import Model.TimetableSlot;
 
 import java.util.List;
@@ -24,9 +24,8 @@ public class Menu {
 
 
     public Menu(User user, TimetableData timetableData) {
-        this.scanner = new Scanner(System.in);
         this.user = user;
-        this.timetableData = new TimetableData();
+        this.timetableData = timetableData;
     }
 
     /**
@@ -177,7 +176,7 @@ public class Menu {
 
         if (choice == 1) {
             System.out.println("Enter slot number (A1-E9): ");
-            String new slot = scanner.nextLine().toUpperCase();
+            String newSlot = scanner.nextLine().toUpperCase();
 
             if (newSlot.matches("[A-E][1-9]")) {
                 slot.setSlot(newSlot);
@@ -202,8 +201,8 @@ public class Menu {
             return;
         }
 
-        FileHandler.saveTimetable(slots, "resources/timetable.csv");
-        System.out.println("No timetable emtries found.");
+        fileHandler.saveTimetable(slots, "resources/timetable.csv");
+        System.out.println("No timetable entries found.");
         return;
     }
 
