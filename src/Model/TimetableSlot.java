@@ -23,7 +23,7 @@ public class TimetableSlot {
     private String lecturer;
     private String roomId;
 
-    public TimetableSlot(String slot, String day, String time, String moduleCode, String groupId, String classType, String lecturer) {
+    public TimetableSlot(String slot, String day, String time, String moduleCode, String groupId, String classType, String lecturer, String roomId) {
         this.moduleCode = moduleCode;
         this.classType = classType;
         this.groupId = groupId;

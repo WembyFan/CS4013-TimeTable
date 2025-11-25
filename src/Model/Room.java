@@ -2,12 +2,10 @@ package Model;
 
 /**
  * Represents a physical room in the timetable system.
- *
  * A room has:
  * 1. A unique ID (e.g., "CSG001")
  * 2. A room type (e.g., "teaching", "CSlab")
  * 3. A maximum capacity (number of seats)
- *
  * This class is used for verifying suitable rooms for classes and detecting timetable clashes
  */
 

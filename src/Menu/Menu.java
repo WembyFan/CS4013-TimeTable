@@ -1,11 +1,10 @@
 package Menu;
- /** Menu class handles user interface interactions
+ /* Menu class handles user interface interactions
   * Provides different menus based on users input **/
 
 import Logic.TimetableData;
 import Login.User;
 import Login.Student;
-import Logic.RoomData;
 import Model.TimetableSlot;
 
 import java.util.List;
@@ -13,12 +12,10 @@ import java.util.Scanner;
 
 public class Menu {
 
-    /**
-     * Constructors initialised
-     * @param user the currently logged in user
-     **/
+    /* Constructors initialised */
 
-    private Scanner scanner;
+    /* @param user the currently logged-in user **/
+
     private User user;
     private TimetableData timetableData;
 
@@ -50,7 +47,7 @@ public class Menu {
 
     private void showAdminMenu() {
         Scanner scanner = new Scanner(System.in);
-        int choice = 0;
+        int choice;
         boolean exit = false;
 
         System.out.println("\n --- ADMIN MENU ---");
@@ -141,8 +138,6 @@ public class Menu {
             return;
         }
 
-        boolean exit = false;
-
         System.out.println("\n --- MODIFY TIME TABLE ---");
 
         for (int i = 0; i < slots.size(); i++) {
@@ -203,7 +198,6 @@ public class Menu {
 
         fileHandler.saveTimetable(slots, "resources/timetable.csv");
         System.out.println("No timetable entries found.");
-        return;
     }
 
     private void printSlots(List<TimetableSlot> slots) {
