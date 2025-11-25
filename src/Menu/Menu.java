@@ -4,7 +4,7 @@ package Menu;
 
 import Login.User;
 import Logic.TimetableManager;
-import Model.RoomManager;
+import Logic.RoomManager;
 import java.util.Scanner;
 
 public class Menu {

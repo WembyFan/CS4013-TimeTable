@@ -1,7 +1,13 @@
+roomId, type, capacity
 CSG001, teaching, 250
 CSG027, teaching, 35
 CS1044, CSlab, 35
 CS2044, CSlab, 40
 CS3005b, CSlab, 30
-KBG12,teaching, 500
-CS4002,CSLab,30
+KBG12, teaching, 300
+CS4002, CSLab, 30
+S206, teaching, 150
+D1050, teaching, 200
+HSG037, teaching, 200
+ERB001, teaching, 190
+FG042, teaching , 250

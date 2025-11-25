@@ -3,16 +3,16 @@ package Login;
 public class User {
 
     /** The unique identifier for the user */
-    protected int userId;
+    private int userId;
 
     /** The user's name */
-    protected String name;
+    private String name;
 
     /** The user's role (student, lecturer, admin) */
-    protected String role;
+    private String role;
 
     /** The user's password */
-    protected String password;
+    private String password;
 
 
     /**
