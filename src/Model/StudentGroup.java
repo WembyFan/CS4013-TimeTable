@@ -2,16 +2,15 @@ package Model;
 
 public class StudentGroup {
     private String course;
-    private String groupId;
     private int year;
+    private String groupId;
     private int size;
 
-    public StudentGroup(String groupId, int year, int size, String course) {
-        this.groupId = groupId;
-        this.year = year;
-        this.size = size;
-        this.course = course;
-
+    public StudentGroup(String course, int year, String groupId, int size) {
+       this.course = course;
+       this.year = year;
+       this.groupId = groupId;
+       this.size = size;
     }
 
     public String getCourse() {

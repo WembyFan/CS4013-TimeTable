@@ -38,13 +38,6 @@ public class Room{
         return roomId;
     }
 
-    /**
-     * Updates the ID of the room
-     * @param roomId the new room ID
-     */
-    public void setRoomId(String roomId) {
-        this.roomId = roomId;
-    }
 
     /**
      * Returns the type of room

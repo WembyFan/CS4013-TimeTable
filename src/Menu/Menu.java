@@ -6,7 +6,7 @@ import Logic.TimetableData;
 import Login.User;
 import Login.Student;
 import Model.TimetableSlot;
-
+import Logic.FileHandler;
 import java.util.List;
 import java.util.Scanner;
 
@@ -204,7 +204,7 @@ public class Menu {
             System.out.println("Invalid choice! Please select a number from 1 - 5.");
         }
 
-        fileHandler.saveTimetable(slots, "resources/timetable.csv");
+        FileHandler.saveTimetable(slots, "resources/timetable.csv");
         System.out.println("No timetable entries found.");
     }
 
