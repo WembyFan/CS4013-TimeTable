@@ -100,7 +100,48 @@ public class TimetableSlot {
         this.roomId = roomId;
     }
 
+    public String getDayFromSlot() {
+        if (slot == null || slot.isEmpty()) return "";
+        char dayChar = slot.charAt(0);
+        if (dayChar == 'A') {
+            return "Monday";
+        } else if (dayChar == 'B') {
+            return "Tuesday";
+        } else if (dayChar == 'C') {
+            return "Wednesday";
+        } else if (dayChar == 'D') {
+            return "Thursday";
+        } else if (dayChar == 'E') {
+            return "Friday";
+        } else {
+            return "";
+        }
+    }
 
-
-
+    public String getTimeFromSlot() {
+        if (slot == null || slot.length() < 2) return "";
+        String timeSlot = slot.substring(1);
+        // Map slot numbers to time ranges
+        if (timeSlot.equals("1")) {
+            return "09:00-10:00";
+        } else if (timeSlot.equals("2")) {
+            return "10:00-11:00";
+        } else if (timeSlot.equals("3")) {
+            return "11:00-12:00";
+        } else if (timeSlot.equals("4")) {
+            return "12:00-13:00";
+        } else if (timeSlot.equals("5")) {
+            return "13:00-14:00";
+        } else if (timeSlot.equals("6")) {
+            return "14:00-15:00";
+        } else if (timeSlot.equals("7")) {
+            return "15:00-16:00";
+        } else if (timeSlot.equals("8")) {
+            return "16:00-17:00";
+        } else if (timeSlot.equals("9")) {
+            return "17:00-18:00";
+        } else {
+            return "";
+        }
+    }
 }

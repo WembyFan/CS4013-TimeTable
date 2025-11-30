@@ -5,9 +5,11 @@ package Menu;
 import Logic.TimetableData;
 import Login.User;
 import Login.Student;
+import Model.StudentGroup;
 import Model.TimetableSlot;
 import Logic.FileHandler;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Menu {
@@ -50,19 +52,23 @@ public class Menu {
         int choice;
         boolean exit = false;
 
-        System.out.println("\n --- ADMIN MENU ---");
-        System.out.println("\nHi  " + user.getName() + " (" + user.getUserId() + ")");
-
-        System.out.println("1. View Timetable");
-        System.out.println("2. View Timetable For Student Group");
-        System.out.println("3. View Room Timetable");
-        System.out.println("4. View Lecturer Timetable");
-        System.out.println("5. Modify Timetable Slot.");
-        System.out.println("6. Logout");
-
-        choice = scanner.nextInt();
-        /* While loop until user exits **/
         while (!exit) {
+
+            System.out.println("\n --- ADMIN MENU ---");
+            System.out.println("\nHi  " + user.getName() + " (" + user.getUserId() + ")");
+
+            System.out.println("1. View Timetable");
+            System.out.println("2. View Timetable For Student Group");
+            System.out.println("3. View Room Timetable");
+            System.out.println("4. View Lecturer Timetable");
+            System.out.println("5. Modify Timetable Slot.");
+            System.out.println("6. Logout");
+
+            choice = scanner.nextInt();
+            scanner.nextLine();
+
+            /* While loop until user exits **/
+
             if (choice == 1) {
                 System.out.println("Generating timetable...");
 
@@ -95,17 +101,18 @@ public class Menu {
     private void showLecturerMenu() {
         Scanner scanner = new Scanner(System.in);
         boolean exit = false;
-
-        System.out.println("\n --- LECTURER MENU ---");
-        System.out.println("\n 1. View Timetable");
-        System.out.println("2. Logout");
-
-        int choice = scanner.nextInt();
-
         while (!exit) {
+
+            System.out.println("\n --- LECTURER MENU ---");
+            System.out.println("\n 1. View Timetable");
+            System.out.println("2. Logout");
+
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+
             if (choice == 1) {
                 printSlots(timetableData.getTimetableForLecturer(user.getName()));
-            } else if (choice == 2){
+            } else if (choice == 2) {
                 exit = true;
             } else
                 System.out.println("Invalid choice! Please select a number from 1 - 2.");
@@ -116,17 +123,19 @@ public class Menu {
         Scanner scanner = new Scanner(System.in);
         boolean exit = false;
 
-        System.out.println("\n --- STUDENT MENU ---");
-        System.out.println("\n 1. View Timetable");
-        System.out.println("2. Logout");
-
-        int choice = scanner.nextInt();
-
         while (!exit) {
+
+            System.out.println("\n --- STUDENT MENU ---");
+            System.out.println("\n 1. View Timetable");
+            System.out.println("2. Logout");
+
+            int choice = scanner.nextInt();
+
             if (choice == 1) {
                 Student s = (Student) user;
                 printSlots(timetableData.getTimetableForGroup(s.getGroupId()));
-            } else if (choice ==2) {
+            } else if (choice == 2) {
+                System.out.println("Successfully Logged out.");
                 exit = true;
             } else {
                 System.out.println("Invalid choice! Please select a number from 1 - 6.");
@@ -157,6 +166,7 @@ public class Menu {
 
         System.out.println("\nChoose slot number to modify: ");
         int index = scanner.nextInt();
+        scanner.nextLine();
 
         if (index < 1 || index > slots.size()) {
             System.out.println("Invalid slot number.");
@@ -173,6 +183,7 @@ public class Menu {
         System.out.println("5. Cancel");
 
         int choice = scanner.nextInt();
+        scanner.nextLine();
 
         if (choice == 1) {
             System.out.println("Enter slot number (A1-E9): ");
@@ -196,7 +207,7 @@ public class Menu {
             System.out.println("Enter new group: ");
             slot.setGroupId(scanner.nextLine());
 
-        } else if (choice == 5){
+        } else if (choice == 5) {
             System.out.println("No changes made.");
             return;
 
@@ -214,11 +225,27 @@ public class Menu {
             return;
         }
 
-        System.out.println("\n--- TIMETABLE ---");
+        List<TimetableSlot> sortedSlots = new ArrayList<>(slots);
+        sortedSlots.sort((s1, s2) -> {
+            int timeCompare = slotToSortValue(s1) - slotToSortValue(s2);
+            if (timeCompare != 0) return timeCompare;
 
-        for (TimetableSlot s : slots) {
+            return s1.getModuleCode().compareTo(s2.getModuleCode());
+        });
+
+        System.out.println("\n--- TIMETABLE (SORTED) ---");
+
+        String currentDay = "";
+        for (TimetableSlot s : sortedSlots) {
+            String day = s.getDayFromSlot();
+
+            if (!day.equals(currentDay)) {
+                System.out.println("\n=== " + day.toUpperCase() + " ===");
+                currentDay = day;
+            }
+
             System.out.println(
-                    "Slot: " + s.getSlot() +
+                    "Time: " + s.getTimeFromSlot() +
                             " | " + s.getModuleCode() +
                             " (" + s.getClassType() + ")" +
                             " | Group: " + s.getGroupId() +
@@ -226,6 +253,43 @@ public class Menu {
                             " | Lecturer: " + s.getLecturer()
             );
         }
+    }
+
+    private List<StudentGroup> getGroupsForCourseAndYear(String course, int year) {
+        List<StudentGroup> result = new ArrayList<>();
+
+        if (course.equals("LM121") && year == 1) {
+            result.add(new StudentGroup("LM121", 1, "1A", 35));
+            result.add(new StudentGroup("LM121", 1, "1B", 34));
+            result.add(new StudentGroup("LM121", 1, "1C", 33));
+        }
+        return result;
+    }
+
+    private int slotToSortValue(TimetableSlot slot) {
+        String slotCode = slot.getSlot();
+        if (slotCode == null || slotCode.length() < 2) return 0;
+
+        char dayChar = slotCode.charAt(0);
+        int timeNumber = Integer.parseInt(slotCode.substring(1));
+
+        int dayValue = 0;
+
+        if (dayChar == 'A') {
+            dayValue = 0;
+        } else if (dayChar == 'B') {
+            dayValue = 1;
+        } else if (dayChar == 'C') {
+            dayValue = 2;
+        } else if (dayChar == 'D') {
+            dayValue = 3;
+        } else if (dayChar == 'E') {
+            dayValue = 4;
+        } else {
+            dayValue = 0;
+        }
+
+        return dayValue * 10 + timeNumber;
     }
 }
 
