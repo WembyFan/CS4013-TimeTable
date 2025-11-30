@@ -57,8 +57,8 @@ public class Menu {
             System.out.println("\n --- ADMIN MENU ---");
             System.out.println("\nHi  " + user.getName() + " (" + user.getUserId() + ")");
 
-            System.out.println("1. View Timetable");
-            System.out.println("2. View Timetable For Student Group");
+            System.out.println("1. View Timetable For Student Group");
+            System.out.println("2. View Timetable For Module");
             System.out.println("3. View Room Timetable");
             System.out.println("4. View Lecturer Timetable");
             System.out.println("5. Modify Timetable Slot.");
@@ -70,12 +70,14 @@ public class Menu {
             /* While loop until user exits **/
 
             if (choice == 1) {
-                System.out.println("Generating timetable...");
-
-            } else if (choice == 2) {
                 System.out.println("Enter group ID: ");
                 String g = scanner.nextLine();
                 printSlots(timetableData.getTimetableForGroup(g));
+
+            } else if (choice == 2) {
+                System.out.println("Enter module ID: ");
+                String g = scanner.nextLine();
+                printSlots(timetableData.getTimetableForModule(g));
 
             } else if (choice == 3) {
                 System.out.println("Enter room ID: ");

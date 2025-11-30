@@ -100,6 +100,21 @@ public class TimetableData {
         return result;
     }
 
+    public List<TimetableSlot> getTimetableForModule(String moduleCode) {
+        List<TimetableSlot> result = new ArrayList<>();
+        if (slots == null) {
+            System.out.println("Warning: slots list is null in getTimetableForModule");
+            return result;
+        }
+
+        for (TimetableSlot slot : slots) {
+            if (slot.getModuleCode() != null && slot.getModuleCode().equalsIgnoreCase(moduleCode)) {
+                result.add(slot);
+            }
+        }
+        return result;
+    }
+
     public List<TimetableSlot> getAllSlots() {
         if (slots == null) {
             System.out.println("Warning: slots list is null in getAllSlots");

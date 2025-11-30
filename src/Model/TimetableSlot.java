@@ -23,13 +23,14 @@ public class TimetableSlot {
     private String lecturer;
     private String roomId;
 
-    public TimetableSlot(String slot, String day, String time, String moduleCode, String groupId, String classType, String lecturer, String roomId) {
+    public TimetableSlot(String moduleCode, String classType, String groupId, String lecturer, String roomId, String slot) {
         this.moduleCode = moduleCode;
         this.classType = classType;
         this.groupId = groupId;
         this.lecturer = lecturer;
         this.roomId = roomId;
         this.slot = slot;
+
     }
     /** @return slot id for timetable **/
     public String getSlot(){
