@@ -1,13 +1,49 @@
-roomId, type, capacity
-CSG001, teaching, 250
-CSG027, teaching, 35
-CS1044, CSlab, 35
-CS2044, CSlab, 40
-CS3005b, CSlab, 30
-KBG12, teaching, 300
-CS4002, CSLab, 30
-S206, teaching, 150
-D1050, teaching, 200
-HSG037, teaching, 200
-ERB001, teaching, 190
-FG042, teaching , 250
+roomId,type,capacity
+CSG002,teaching,300
+CSG003,teaching,250
+CSG004,teaching,200
+CSG005,teaching,150
+CSG006,teaching,100
+KBG12,teaching,500
+KBG13,teaching,400
+KBG14,teaching,350
+KBG15,teaching,300
+KBG16,teaching,250
+ENG001,teaching,200
+ENG002,teaching,150
+ENG003,teaching,100
+CS1044,lab,40
+CS1045,lab,40
+CS1046,lab,40
+CS2044,lab,40
+CS2045,lab,40
+CS2046,lab,40
+CS3005a,lab,30
+CS3005b,lab,30
+CS3005c,lab,30
+CS4001,lab,35
+CS4002,lab,35
+CS4003,lab,35
+EE1001,lab,35
+EE1002,lab,35
+EE1003,lab,35
+EE2001,lab,30
+EE2002,lab,30
+EE2003,lab,30
+EE3001,lab,25
+EE3002,lab,25
+BI1001,lab,25
+BI1002,lab,25
+BI1003,lab,25
+BI2001,lab,20
+BI2002,lab,20
+BI2003,lab,20
+MA1001,teaching,50
+MA1002,teaching,50
+MA1003,teaching,50
+MA2001,teaching,40
+MA2002,teaching,40
+SCI001,lab,30
+SCI002,lab,30
+SCI003,lab,25
+SCI004,lab,25

@@ -63,7 +63,7 @@ public class RoomData{
      */
     public boolean isRoomFree(String roomId, String slot){
         for(TimetableSlot ts : slots){
-            if(ts.getRoomId().equals(roomId) && ts.getSlotId().equals(slot)){
+            if(ts.getRoomId().equals(roomId) && ts.getSlot().equals(slot)){
                 return false;
             }
         }
