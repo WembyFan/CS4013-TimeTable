@@ -11,7 +11,7 @@ userId,name,role,password,course,year,groupId
 2009,Paul Gallagher,lecturer,teach123,NA,0,NA
 2010,Thomas Evans,lecturer,teach123,NA,0,NA
 2011,Rachel Clarke,lecturer,teach123,NA,0,NA
-1001,John Doe,student,pass123,CS,1,CS1A
+1001,Breean Cunningham,student,pass123,CS,1,CS1A
 1002,Sarah O'Brien,student,pass123,CS,1,CS1A
 1003,Luke Nolan,student,pass123,CS,1,CS1B
 1004,Aoife Murphy,student,pass123,CS,2,CS2B

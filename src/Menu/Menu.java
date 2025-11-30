@@ -128,7 +128,7 @@ public class Menu {
         while (!exit) {
 
             System.out.println("\n --- STUDENT MENU ---");
-            System.out.println("\n 1. View Timetable");
+            System.out.println("\n1. View Timetable");
             System.out.println("2. Logout");
 
             int choice = scanner.nextInt();
