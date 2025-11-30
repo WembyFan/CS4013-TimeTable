@@ -234,7 +234,7 @@ public class FileHandler {
      * @return a list of ModuleEnrollment objects loaded from the file, or
      *         an empty list if an error occurs
      *
-     * @see ModuleEnollment
+     * @see ModuleEnrollment
      */
 
     public static List<ModuleEnrollment> loadEnrollments(String filename) {
