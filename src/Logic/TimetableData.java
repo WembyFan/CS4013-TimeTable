@@ -4,7 +4,18 @@ import Model.TimetableSlot;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Manages timetable data and provides methods to retrieve timetable information
+ * for different entities (groups, lecturers, rooms).
+ * This class serves as the main data access layer for timetable operations.
+ *
+ */
 public class TimetableData {
+    /**
+     * Constructs a TimetableData object with the provided list of timetable slots.
+     *
+     * @param slots the list of TimetableSlot objects to initialize the data with
+     */
 
     private List<TimetableSlot> slots;
 
@@ -12,6 +23,12 @@ public class TimetableData {
         this.slots = slots;
     }
 
+    /**
+     * Retrieves the timetable for a specific student group.
+     *
+     * @param groupId the ID of the student group to search for
+     * @return a list of TimetableSlot objects belonging to the specified group
+     */
     public List<TimetableSlot> getTimetableForGroup(String groupId) {
         List<TimetableSlot> result = new ArrayList<>();
         if (slots == null) {
@@ -68,7 +85,12 @@ public class TimetableData {
     }
 
 
-
+    /**
+     * Retrieves the timetable for a specific lecturer.
+     *
+     * @param lecturer the ID of the lecturer to search for
+     * @return a list of TimetableSlot objects assigned to the specified lecturer
+     */
     public List<TimetableSlot> getTimetableForLecturer(String lecturer) {
         List<TimetableSlot> result = new ArrayList<>();
         if (slots == null) {
@@ -84,7 +106,12 @@ public class TimetableData {
         return result;
     }
 
-
+    /**
+     * Retrieves the timetable for a specific room.
+     *
+     * @param roomId the ID of the room to search for
+     * @return a list of TimetableSlot objects scheduled in the specified room
+     */
     public List<TimetableSlot> getTimetableForRoom(String roomId) {
         List<TimetableSlot> result = new ArrayList<>();
         if (slots == null) {
@@ -99,7 +126,11 @@ public class TimetableData {
         }
         return result;
     }
-
+    /**
+     * Retrieves timetable for specific module code
+     *
+     * @return a list of module timetable objects
+     */
     public List<TimetableSlot> getTimetableForModule(String moduleCode) {
         List<TimetableSlot> result = new ArrayList<>();
         if (slots == null) {
@@ -114,7 +145,11 @@ public class TimetableData {
         }
         return result;
     }
-
+    /**
+     * Retrieves all timetable slots in the system.
+     *
+     * @return a list of all TimetableSlot objects
+     */
     public List<TimetableSlot> getAllSlots() {
         if (slots == null) {
             System.out.println("Warning: slots list is null in getAllSlots");

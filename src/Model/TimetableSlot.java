@@ -1,19 +1,25 @@
 package Model;
 
+/**
+ * Represents a single timeslot in the timetable system.
+ * This class contains all details about a scheduled class including timing,
+ * module, group, lecturer, and room assignment.
+ *
+ */
 public class TimetableSlot {
 
-
     /**
+     * Constructs a new TimetableSlot with all necessary details.
      *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     * **/
-
+     * @param slot the slot identifier (e.g., A1-E9)
+     * @param day the day of the week for this slot
+     * @param time the time period for this slot
+     * @param moduleCode the module being taught in this slot
+     * @param groupId the student group attending this class
+     * @param classType the type of class (Lecture, Tutorial, Lab)
+     * @param lecturer the lecturer teaching this class
+     * @param roomId the room where this class takes place
+     */
     private String slot;
     private String day;
     private String time;
@@ -32,7 +38,9 @@ public class TimetableSlot {
         this.slot = slot;
 
     }
-    /** @return slot id for timetable **/
+    /**
+     *  @return slot id for timetable *
+     */
     public String getSlot(){
         return slot;
     }
@@ -41,7 +49,9 @@ public class TimetableSlot {
         this.slot = slot;
     }
 
-    /** @return day **/
+    /**
+     * @return day
+     */
     public String getDay(){
         return day;
     }
@@ -55,6 +65,11 @@ public class TimetableSlot {
         return time;
     }
 
+    /**
+     * Updates the time for this slot
+     *
+     * @param time the new time to set
+     */
     public void setTime(String time){
         this.time = time;
     }
@@ -68,38 +83,77 @@ public class TimetableSlot {
         this.moduleCode = moduleCode;
     }
 
-    /** @return group id **/
+    /**
+     * @return group id
+     */
     public String getGroupId(){
         return groupId;
     }
 
+    /**
+     * Updates the group ID for this slot
+     *
+     * @param groupId the new group ID to set
+     */
     public void setGroupId(String groupId){
         this.groupId = groupId;
     }
 
+    /**
+     * @return the class type for this slot
+     */
     public String getClassType(){
         return classType;
     }
 
+    /**
+     * Updates the class type for this slot
+     *
+     * @param classType the new class type to set
+     */
     public void setClassType(String classType){
         this.classType = classType;
     }
 
+    /**
+     * @return the lecturer
+     */
     public String getLecturer(){
         return lecturer;
     }
 
+    /**
+     * Updates the lecturer for this slot
+     *
+     * @param lecturer the new lecturer to set
+     */
     public void setLecturer(String lecturer){
         this.lecturer = lecturer;
     }
 
+    /**
+     * @return the room ID for this slot
+     */
     public String getRoomId(){
         return roomId;
     }
 
+    /**
+     * Updates the room ID for this slot
+     *
+     * @param roomId the new room ID to set
+     */
     public void setRoomId(String roomId){
         this.roomId = roomId;
     }
+
+
+/**
+ * Converts a slot identifier to its corresponding day of the week.
+ * The slot format should follow the pattern: [A-E][1-9]
+ *
+ * @return the full day name corresponding to the slot
+ */
 
     public String getDayFromSlot() {
         if (slot == null || slot.isEmpty()) return "";
@@ -118,6 +172,13 @@ public class TimetableSlot {
             return "";
         }
     }
+
+/**
+ * Converts a slot identifier to its corresponding time range.
+ * The slot format should follow the pattern: [A-E][1-9]
+ *
+ * @return the time range
+ * */
 
     public String getTimeFromSlot() {
         if (slot == null || slot.length() < 2) return "";

@@ -12,11 +12,20 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Handles user interface interactions and provides role-based menu navigation.
+ * This class displays different menu options based on the user's role (Admin, Lecturer, Student)
+ * and processes user input to perform corresponding actions.
+ *
+ */
 public class Menu {
 
-    /* Constructors initialised */
-
-    /* @param user the currently logged-in user **/
+    /**
+     * Constructs a Menu object for the specified user with access to timetable data.
+     *
+     * @param user the currently logged-in user
+     * @param timetableData the timetable data access object
+     */
 
     private User user;
     private TimetableData timetableData;
@@ -31,9 +40,7 @@ public class Menu {
      * This menu will log the user in based on whether its staff, admin or student
      **/
     public void showMenu() {
-        /*
-        Ensure input is changed to lower case to avoid errors
-         */
+
         String role = user.getRole().toLowerCase();
 
         if (role.equals("admin")) {
@@ -46,7 +53,11 @@ public class Menu {
             System.out.println("Invalid role.");
         }
     }
-
+    /**
+     * Displays the administrative menu with full system access.
+     * Only admins have access to this menu.
+     * Options include viewing various timetables and modifying timetable slots.
+     */
     private void showAdminMenu() {
         Scanner scanner = new Scanner(System.in);
         int choice;
@@ -99,7 +110,10 @@ public class Menu {
                 System.out.println("Invalid choice! Please select a number from 1 - 6.");
         }
     }
-
+    /**
+     * Displays the lecturer menu with limited access.
+     * Lecturers can only view their own timetable.
+     */
     private void showLecturerMenu() {
         Scanner scanner = new Scanner(System.in);
         boolean exit = false;
@@ -120,7 +134,10 @@ public class Menu {
                 System.out.println("Invalid choice! Please select a number from 1 - 2.");
         }
     }
-
+    /**
+     * Displays the student menu with basic access.
+     * Students can only view their own timetable.
+     */
     private void showStudentMenu() {
         Scanner scanner = new Scanner(System.in);
         boolean exit = false;
@@ -144,7 +161,11 @@ public class Menu {
             }
         }
     }
-
+    /**
+     * Allows administrators to modify existing timetable slots.
+     * Provides options to change slot timing, room, lecturer, or group assignment.
+     * Automatically saves changes to the timetable file.
+     */
     private void modifyTimetableSlot() {
         Scanner scanner = new Scanner(System.in);
         List<TimetableSlot> slots = timetableData.getAllSlots();
@@ -220,7 +241,11 @@ public class Menu {
         FileHandler.saveTimetable(slots, "resources/timetable.csv");
         System.out.println("No timetable entries found.");
     }
-
+    /**
+     * Prints a formatted list of timetable slots to the console.
+     *
+     * @param slots the list of TimetableSlot objects to display
+     */
     private void printSlots(List<TimetableSlot> slots) {
         if (slots == null || slots.isEmpty()) {
             System.out.println("No timetable entries found.");
