@@ -1,2 +1,4 @@
-# CS4013-TimeTable
-Building a timetabling system for University of Limerick. 
+# README - University Timetable System
+HOW TO RUN  
+This application is a console-based University Timetable System written in Java. It allows students, lecturers, and administrators to log in and access different features depending on their role. Students can view their personal timetable based on their assigned group, lecturers can view the classes they teach, and administrators can view, modify, and save timetable slots. All system data is stored in CSV files. To run the program, open the project in IntelliJ (or any Java IDE), ensure the resources folder contains the required CSV files, and run Main.java. The system will prompt for a user ID and password which can be gotten from users.csv, and after successful login, the appropriate menu will be displayed.
+  
